@@ -1,4 +1,5 @@
 // src/components/SearchBar.js
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const SearchBar = ({ onSearch }) => {
@@ -9,7 +10,12 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="flex justify-center mt-6">
+    <motion.div
+      className="flex  flex-column justify-center mt-6"
+      initial={{ opacity: 0 }} // Start with opacity 0
+      animate={{ opacity: 1 }} // Animate to opacity 1
+      transition={{ duration: 1 }} // Setting the duration of the transition
+    >
       <input
         type="text"
         placeholder="Enter city name"
@@ -23,9 +29,8 @@ const SearchBar = ({ onSearch }) => {
       >
         Search
       </button>
-    </div>
+    </motion.div>
   );
 };
 
 export default SearchBar;
-
